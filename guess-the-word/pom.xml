@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>217</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -40,10 +40,15 @@
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.11.0</version>
+              <configuration>
+                  <source>21</source>
+                  <target>21</target>
+              </configuration>
+          </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
@@ -68,6 +73,15 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+        <!-- Exec plugin to run main class -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <mainClass>com.guesstheword.App</mainClass>
+            </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
