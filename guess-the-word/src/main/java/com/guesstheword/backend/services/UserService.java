@@ -9,7 +9,7 @@ public class UserService {
     private final UserDAO userDAO = new UserDAO();
 
     // Registration
-    public String register(String username, String password, boolean isAdmin) throws SQLException {
+    public String register(String username, String password) throws SQLException {
         // Validate username
         if (username.length() < 5 || !username.matches(".*[A-Z].*") || !username.matches(".*[a-z].*")) {
             return "Username must be ≥5 chars with upper and lower case letters.";
@@ -30,7 +30,7 @@ public class UserService {
 
         // Hash password and save
         String hash = PasswordUtil.hashPassword(password);
-        User user = new User(username, hash, isAdmin);
+        User user = new User(username, hash,false);
         userDAO.insertUser(user);
 
         return "User registered successfully!";

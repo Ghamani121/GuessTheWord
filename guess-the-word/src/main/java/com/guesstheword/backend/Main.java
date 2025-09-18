@@ -22,10 +22,8 @@ public class Main {
                         String username = scanner.nextLine();
                         System.out.print("Password: ");
                         String password = scanner.nextLine();
-                        System.out.print("Is admin (true/false): ");
-                        boolean isAdmin = Boolean.parseBoolean(scanner.nextLine());
 
-                        String result = userService.register(username, password, isAdmin);
+                        String result = userService.register(username, password);
                         System.out.println(result);
                     }
                     case "2" -> {

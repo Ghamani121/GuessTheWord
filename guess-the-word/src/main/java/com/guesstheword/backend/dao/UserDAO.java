@@ -26,13 +26,13 @@ public class UserDAO {
 
     // Insert new user
     public void insertUser(User user) throws SQLException {
-        String sql = "INSERT INTO user (username, hash_password, is_admin) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user (username, hash_password) VALUES (?, ?)";
         try (Connection conn = DbConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getHashPassword());
-            stmt.setBoolean(3, user.isAdmin());
+            // stmt.setBoolean(3, user.isAdmin());
             stmt.executeUpdate();
         }
     }

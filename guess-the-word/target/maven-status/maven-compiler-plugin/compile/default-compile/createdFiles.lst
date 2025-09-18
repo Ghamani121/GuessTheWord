@@ -1,6 +1,0 @@
-com\guesstheword\backend\services\UserService.class
-com\guesstheword\backend\utils\PasswordUtil.class
-com\guesstheword\backend\Main.class
-com\guesstheword\backend\models\User.class
-com\guesstheword\backend\dao\UserDAO.class
-com\guesstheword\backend\utils\DbConnection.class
