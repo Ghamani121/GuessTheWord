@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/views/login.fxml"));
         Scene scene = new Scene(loader.load(), 400, 250);
-        stage.setTitle("Guess The Word - Registration");
+        stage.setTitle("Guess The Word");
         stage.setScene(scene);
         stage.show();
     }

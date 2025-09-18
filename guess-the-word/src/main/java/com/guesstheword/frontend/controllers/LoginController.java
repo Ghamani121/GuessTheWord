@@ -1,10 +1,13 @@
 package com.guesstheword.frontend.controllers;
-
+import com.guesstheword.frontend.utils.SceneSwitcher;
 import com.guesstheword.backend.services.UserService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 
 public class LoginController {
 
@@ -33,4 +36,10 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
+        @FXML
+        private void switchToRegister(ActionEvent event) throws Exception {
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneSwitcher.switchScene(stage, "registration.fxml", "Guess The Word - Registration", 400, 250);
+        }
 }

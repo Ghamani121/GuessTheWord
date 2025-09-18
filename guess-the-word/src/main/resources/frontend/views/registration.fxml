@@ -9,5 +9,8 @@
     <TextField fx:id="usernameField" promptText="Username"/>
     <PasswordField fx:id="passwordField" promptText="Password"/>
     <Button text="Register" onAction="#handleRegister"/>
+    <Button text="Already have an account? Login" onAction="#switchToLogin"/>
     <Label fx:id="messageLabel" textFill="red"/>
 </VBox>
+
+

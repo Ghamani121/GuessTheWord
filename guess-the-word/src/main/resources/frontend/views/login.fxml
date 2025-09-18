@@ -8,7 +8,7 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.guesstheword.frontend.controllers.LoginController"
       spacing="10" alignment="CENTER" >
-      
+
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
@@ -20,6 +20,11 @@
 
     <Button text="Login" onAction="#handleLogin" />
 
+    <Button text="Don’t have an account? Register" onAction="#switchToRegister"/>
+
     <Label fx:id="messageLabel" textFill="red" />
 
 </VBox>
+
+
+
