@@ -22,20 +22,29 @@ public class LoginController {
 
     private final UserService userService = new UserService();
 
-    @FXML
-    private void handleLogin() {
-        try {
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+@FXML
+private void handleLogin() {
+    try {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
 
-            String result = userService.login(username, password);
-            messageLabel.setText(result);
+        String result = userService.login(username, password);
 
-        } catch (Exception e) {
-            messageLabel.setText("Error: " + e.getMessage());
-            e.printStackTrace();
+        if (result.equals("Login successful!")) {
+            // Get current stage
+            Stage stage = (Stage) usernameField.getScene().getWindow();
+            // Switch to the game screen
+            SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word - Game", 500, 400);
+        } else {
+            messageLabel.setText(result); // show error message
         }
+
+    } catch (Exception e) {
+        messageLabel.setText("Error: " + e.getMessage());
+        e.printStackTrace();
     }
+}
+
 
         @FXML
         private void switchToRegister(ActionEvent event) throws Exception {
