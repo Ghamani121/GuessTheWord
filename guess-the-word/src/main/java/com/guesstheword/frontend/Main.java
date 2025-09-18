@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/views/registration.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/views/login.fxml"));
         Scene scene = new Scene(loader.load(), 400, 250);
         stage.setTitle("Guess The Word - Registration");
         stage.setScene(scene);
