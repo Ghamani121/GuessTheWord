@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import com.guesstheword.backend.services.GameService;
+import com.guesstheword.backend.models.GameSession;
+import com.guesstheword.backend.models.User;
+import com.guesstheword.backend.dao.UserDAO;
+
 
 
 public class LoginController {
@@ -21,6 +26,8 @@ public class LoginController {
     private Label messageLabel;
 
     private final UserService userService = new UserService();
+    private final GameService gameService = new GameService();
+    private final UserDAO userDAO=new UserDAO();
 
 @FXML
 private void handleLogin() {
@@ -31,21 +38,36 @@ private void handleLogin() {
         String result = userService.login(username, password);
 
         if (result.equals("Login successful!")) {
-            // Get current stage
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            // Switch to the game screen
-            SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word - Game", 500, 400);
+            // Login succeeded, start a new game session automatically
+            try {
+                User user = userDAO.getUserByUsername(username);
+                int userId = user.getUserId();
+
+                // Start game session
+                GameSession session = gameService.startGame(userId);
+
+                // Pass session info to GameController (optional)
+                Stage stage = (Stage) usernameField.getScene().getWindow();
+                SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word", 500, 400, controller -> {
+                    ((GameController) controller).initData(session); // pass the GameSession
+                });
+
+
+            } catch (IllegalStateException ex) {
+                // Daily limit reached or other game-start errors
+                messageLabel.setText(ex.getMessage());
+            } catch (Exception ex) {
+                messageLabel.setText("Error starting game: " + ex.getMessage());
+                ex.printStackTrace();
+            }
         } else {
             messageLabel.setText(result); // show error message
         }
-
     } catch (Exception e) {
         messageLabel.setText("Error: " + e.getMessage());
         e.printStackTrace();
     }
 }
-
-
         @FXML
         private void switchToRegister(ActionEvent event) throws Exception {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

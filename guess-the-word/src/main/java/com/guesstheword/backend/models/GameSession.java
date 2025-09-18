@@ -8,7 +8,7 @@ public class GameSession {
     private int word_id;
     private LocalDateTime start_time;
     private LocalDateTime end_time;
-    private String status; // IN_PROGRESS, WON, LOST
+    private String status; // PROGRESS, WON, LOST
 
     // Empty constructor
     public GameSession() {}
