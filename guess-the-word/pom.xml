@@ -25,7 +25,7 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    
+
     <!-- JavaFX modules -->
     <dependency>
         <groupId>org.openjfx</groupId>
@@ -99,7 +99,7 @@
             <artifactId>exec-maven-plugin</artifactId>
             <version>3.1.0</version>
             <configuration>
-                <mainClass>com.guesstheword.App</mainClass>
+                <mainClass>com.guesstheword.backend.Main</mainClass>
             </configuration>
         </plugin>
       </plugins>
