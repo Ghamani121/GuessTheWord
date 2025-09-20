@@ -36,18 +36,17 @@
         </HBox>
     </VBox>
 
+    <!-- Input and submit -->
+    <HBox spacing="15" alignment="CENTER">
+        <TextField fx:id="guessField" promptText="Enter a word" styleClass="input-field" prefWidth="250"/>
+        <Button fx:id="submitButton" text="Guess" onAction="#handleGuess" styleClass="primary-btn" prefWidth="100"/>
+    </HBox>
 
     <!-- Info & messages -->
     <VBox spacing="5" alignment="CENTER">
         <Label fx:id="attemptsLabel" text="Attempts left: 5" styleClass="info-label"/>
         <Label fx:id="messageLabel" text="" styleClass="error-label"/>
     </VBox>
-
-    <!-- Input and submit -->
-    <HBox spacing="15" alignment="CENTER">
-        <TextField fx:id="guessField" promptText="Enter a word" styleClass="input-field" prefWidth="250"/>
-        <Button fx:id="submitButton" text="Guess" onAction="#handleGuess" styleClass="primary-btn" prefWidth="100"/>
-    </HBox>
 
     <!-- Game instructions -->
     <VBox spacing="5" alignment="CENTER">
