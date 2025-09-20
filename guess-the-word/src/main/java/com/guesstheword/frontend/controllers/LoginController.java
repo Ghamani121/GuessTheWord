@@ -55,7 +55,7 @@ private void handleLogin() {
                         e.printStackTrace();
                         messageLabel.setText("Error initializing game: " + e.getMessage());
                     }
-                });
+                });//
             } catch (IllegalStateException ex) {
                 // Daily limit reached or other game-start errors
                 messageLabel.setText(ex.getMessage());
