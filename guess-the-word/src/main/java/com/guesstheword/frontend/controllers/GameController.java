@@ -46,17 +46,28 @@ public class GameController {
     private int attemptsLeft = maxAttempts;
     private String actualWord;
 
-    public void initData(GameSession session) throws Exception {
-        this.session = session;
+public void initData(GameSession session) throws Exception {
+    this.session = session;
 
-        // Fetch the actual word from DB
-        WordDAO wordDAO = new WordDAO();
-        actualWord = wordDAO.getWordById(session.getWordId()).getWordText().toUpperCase();
+    WordDAO wordDAO = new WordDAO();
+    actualWord = wordDAO.getWordById(session.getWordId()).getWordText().toUpperCase();
 
-        // Initialize UI
-        messageLabel.setText("Make your first guess!");
-        attemptsLabel.setText("Attempts left: " + attemptsLeft);
+    // Add placeholder row dynamically
+    HBox placeholderRow = new HBox(10);
+    placeholderRow.setAlignment(Pos.CENTER);
+    for (int i = 0; i < 5; i++) {
+        Label cell = new Label("");
+        cell.getStyleClass().add("letter-cell");
+        cell.setPrefSize(50, 50);
+        cell.setAlignment(Pos.CENTER);
+        placeholderRow.getChildren().add(cell);
     }
+    wordGrid.getChildren().add(placeholderRow);
+
+    messageLabel.setText("Make your first guess!");
+    attemptsLabel.setText("Attempts left: " + attemptsLeft);
+}
+
 
     @FXML
     private void handleGuess(ActionEvent event) throws Exception {
@@ -84,10 +95,10 @@ public class GameController {
 
         // Win/loss logic
         if (isCorrect) {
-            messageLabel.setText("🎉 Congratulations! You guessed correctly!");
+            messageLabel.setText("Congratulations! You guessed correctly!");
             submitButton.setDisable(true);
         } else if (attemptsLeft == 0) {
-            messageLabel.setText("❌ Better luck next time! Word was: " + actualWord);
+            messageLabel.setText("Better luck next time! Word was: " + actualWord);
             submitButton.setDisable(true);
         } else {
             messageLabel.setText("Try again!");

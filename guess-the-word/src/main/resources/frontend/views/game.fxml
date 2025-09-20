@@ -24,17 +24,8 @@
     <!-- Title -->
     <Label text="🌳 Guess The Word!" styleClass="title-label" alignment="CENTER"/>
 
+    <VBox fx:id="wordGrid" spacing="15" alignment="CENTER"/>
 
-    <!-- Word grid: VBox holding rows (initially one empty 5-letter HBox) -->
-    <VBox fx:id="wordGrid" spacing="15" alignment="CENTER">
-        <HBox spacing="8" alignment="CENTER">
-            <Label text="" styleClass="letter-cell" prefWidth="50" prefHeight="50"/>
-            <Label text="" styleClass="letter-cell" prefWidth="50" prefHeight="50"/>
-            <Label text="" styleClass="letter-cell" prefWidth="50" prefHeight="50"/>
-            <Label text="" styleClass="letter-cell" prefWidth="50" prefHeight="50"/>
-            <Label text="" styleClass="letter-cell" prefWidth="50" prefHeight="50"/>
-        </HBox>
-    </VBox>
 
 <!-- Input row -->
 <HBox spacing="10" alignment="CENTER">
@@ -48,16 +39,8 @@
     <VBox spacing="5" alignment="CENTER">
         <Label fx:id="attemptsLabel" text="Attempts left: 5" styleClass="info-label"/>
     </VBox>
-    <VBox spacing="5" alignment="CENTER">
+    <VBox alignment="CENTER">
         <Label fx:id="messageLabel" text="" styleClass="error-label"/>
     </VBox>
-
-    <!-- Game instructions -->
-    <!-- <VBox spacing="5" alignment="CENTER">
-        <Label text="How to play:" styleClass="instructions-title"/>
-        <Label text="• Green = correct letter &amp; position" styleClass="instructions-text"/>
-        <Label text="• Yellow = correct letter, wrong position" styleClass="instructions-text"/>
-        <Label text="• Gray = letter not in the word" styleClass="instructions-text"/>
-    </VBox> -->
 
 </VBox>
