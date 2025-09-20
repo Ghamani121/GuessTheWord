@@ -99,8 +99,18 @@ public class GameController {
      * Creates a row of colored cells for the guess
      */
     private void renderGuess(String guess) {
-        HBox row = new HBox(5); 
-        row.setAlignment(Pos.CENTER);
+        HBox row;
+
+        // If it's the first guess, reuse the placeholder row
+        if (wordGrid.getChildren().size() == 1 && guess.trim().length() == 5) {
+            row = (HBox) wordGrid.getChildren().get(0);
+            row.getChildren().clear();
+        } else {
+            // Otherwise, add a new row
+            row = new HBox(10);
+            row.setAlignment(Pos.CENTER);
+            wordGrid.getChildren().add(row);
+        }
 
         for (int i = 0; i < 5; i++) {
             char g = guess.charAt(i);
@@ -108,25 +118,20 @@ public class GameController {
 
             Label cell = new Label(String.valueOf(g));
             cell.getStyleClass().add("letter-cell");
-            cell.setMinSize(40, 40);
+            cell.setPrefSize(50, 50);
             cell.setAlignment(Pos.CENTER);
 
             if (g == a) {
-                // Correct position -> green
                 cell.setStyle("-fx-background-color: #6aaa64; -fx-text-fill: white;");
             } else if (actualWord.indexOf(g) != -1) {
-                // Present but wrong position -> yellow
                 cell.setStyle("-fx-background-color: #c9b458; -fx-text-fill: white;");
             } else {
-                // Not in word -> grey
                 cell.setStyle("-fx-background-color: #787c7e; -fx-text-fill: white;");
             }
-
             row.getChildren().add(cell);
         }
-
-        wordGrid.getChildren().add(row);
     }
+
     @FXML
     private void handleLogout() throws IOException {
         Stage stage = (Stage) logoutButton.getScene().getWindow();
