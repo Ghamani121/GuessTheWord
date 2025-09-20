@@ -4,6 +4,7 @@ import com.guesstheword.backend.models.User;
 import com.guesstheword.backend.utils.PasswordUtil;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserService {
     private final UserDAO userDAO = new UserDAO();
@@ -47,4 +48,12 @@ public class UserService {
             return "Incorrect password.";
         }
     }
+
+    public List<String> getAllUsernames() throws SQLException {
+        return userDAO.getAllUsers()
+                    .stream()
+                    .map(User::getUsername)
+                    .toList();
+    }
+
 }

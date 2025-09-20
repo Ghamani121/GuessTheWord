@@ -4,6 +4,7 @@ import com.guesstheword.backend.models.GameSession;
 import com.guesstheword.backend.utils.DbConnection;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class GameSessionDAO {
@@ -71,4 +72,24 @@ public class GameSessionDAO {
         }
         return null;
     }
+    // Count how many game sessions a user has played on a given date
+    public int getGamesCountByUserAndDate(int userId, LocalDate date) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM game_session WHERE user_id = ? AND DATE(start_time) = ?";
+        
+        try (Connection conn = DbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userId);
+            stmt.setDate(2, java.sql.Date.valueOf(date));
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        }
+
+        return 0; // no games found
+    }
+
 }

@@ -38,39 +38,43 @@ private void handleLogin() {
         String result = userService.login(username, password);
 
         if (result.equals("Login successful!")) {
-            // Login succeeded, start a new game session automatically
-            try {
-                User user = userDAO.getUserByUsername(username);
-                int userId = user.getUserId();
+            // Get the logged-in user
+            User user = userDAO.getUserByUsername(username);
+            Stage stage = (Stage) usernameField.getScene().getWindow();
 
-                // Start game session
-                GameSession session = gameService.startGame(userId);
+            if (user.isAdmin()) {
+                // Admin user -> go to admin.fxml
+                SceneSwitcher.switchScene(stage, "admin.fxml", "Admin Dashboard - Guess The Word", 600, 400);
+            } else {
+                // Regular user -> start a new game session
+                try {
+                    GameSession session = gameService.startGame(user.getUserId());
 
-                // Pass session info to GameController (optional)
-                Stage stage = (Stage) usernameField.getScene().getWindow();
-                SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word", 500, 400, controller -> {
-                    try {
-                        ((GameController) controller).initData(session);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        messageLabel.setText("Error initializing game: " + e.getMessage());
-                    }
-                });
-            } catch (IllegalStateException ex) {
-                // Daily limit reached or other game-start errors
-                messageLabel.setText(ex.getMessage());
-            } catch (Exception ex) {
-                messageLabel.setText("Error starting game: " + ex.getMessage());
-                ex.printStackTrace();
+                    // Pass session info to GameController
+                    SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word", 500, 400, controller -> {
+                        try {
+                            ((GameController) controller).initData(session);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            messageLabel.setText("Error initializing game: " + e.getMessage());
+                        }
+                    });
+                } catch (IllegalStateException ex) {
+                    messageLabel.setText(ex.getMessage());
+                } catch (Exception ex) {
+                    messageLabel.setText("Error starting game: " + ex.getMessage());
+                    ex.printStackTrace();
+                }
             }
         } else {
-            messageLabel.setText(result); // show error message
+            messageLabel.setText(result); // show login error
         }
     } catch (Exception e) {
         messageLabel.setText("Error: " + e.getMessage());
         e.printStackTrace();
     }
 }
+
         @FXML
         private void switchToRegister(ActionEvent event) throws Exception {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

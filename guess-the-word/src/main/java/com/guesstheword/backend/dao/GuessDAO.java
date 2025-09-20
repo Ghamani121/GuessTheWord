@@ -4,56 +4,49 @@ import com.guesstheword.backend.models.Guess;
 import com.guesstheword.backend.utils.DbConnection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
 public class GuessDAO {
 
-    // Insert a new guess
+    // Save a guess
     public void insertGuess(Guess guess) throws SQLException {
         String sql = "INSERT INTO guess (session_id, guess_text, is_correct, created_at) VALUES (?, ?, ?, ?)";
         try (Connection conn = DbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, guess.getSessionId());
             stmt.setString(2, guess.getGuessText());
             stmt.setBoolean(3, guess.isCorrect());
             stmt.setTimestamp(4, Timestamp.valueOf(guess.getCreatedAt()));
-
             stmt.executeUpdate();
-
-            // Get generated guess_id
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                if (rs.next()) {
-                    guess.setGuessId(rs.getInt(1));
-                }
-            }
         }
     }
 
-    // Fetch all guesses for a session
-    public List<Guess> getGuessesBySession(int sessionId) throws SQLException {
-        List<Guess> guesses = new ArrayList<>();
-        String sql = "SELECT * FROM guess WHERE session_id = ? ORDER BY created_at ASC";
-
+    // Correct guesses count by date
+    public int getCorrectGuessesCountByDate(LocalDate date) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM guess WHERE is_correct = true AND DATE(created_at) = ?";
         try (Connection conn = DbConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, sessionId);
-
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    Guess guess = new Guess(
-                            rs.getInt("guess_id"),
-                            rs.getInt("session_id"),
-                            rs.getString("guess_text"),
-                            rs.getBoolean("is_correct"),
-                            rs.getTimestamp("created_at").toLocalDateTime()
-                    );
-                    guesses.add(guess);
-                }
-            }
+            stmt.setDate(1, java.sql.Date.valueOf(date));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) return rs.getInt(1);
         }
-        return guesses;
+        return 0;
+    }
+
+    // Correct guesses by user and date
+    public int getCorrectGuessesByUserAndDate(int userId, LocalDate date) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM guess g JOIN game_session s ON g.session_id = s.session_id " +
+                     "WHERE g.is_correct = true AND s.user_id = ? AND DATE(g.created_at) = ?";
+        try (Connection conn = DbConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userId);
+            stmt.setDate(2, java.sql.Date.valueOf(date));
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        }
+        return 0;
     }
 }
