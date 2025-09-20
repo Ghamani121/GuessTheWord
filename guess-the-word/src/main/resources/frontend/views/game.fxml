@@ -24,14 +24,16 @@
     <!-- Title -->
     <Label text="🌳 Guess The Word!" styleClass="title-label" alignment="CENTER"/>
 
-    <!-- Word grid: initially empty 5-letter row -->
-    <HBox fx:id="wordGrid" spacing="10" alignment="CENTER">
-        <Label text="" styleClass="letter-box"/>
-        <Label text="" styleClass="letter-box"/>
-        <Label text="" styleClass="letter-box"/>
-        <Label text="" styleClass="letter-box"/>
-        <Label text="" styleClass="letter-box"/>
-    </HBox>
+    <!-- Word grid: VBox holding rows (initially one empty 5-letter HBox) -->
+    <VBox fx:id="wordGrid" spacing="10" alignment="CENTER">
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="" styleClass="letter-box"/>
+            <Label text="" styleClass="letter-box"/>
+            <Label text="" styleClass="letter-box"/>
+            <Label text="" styleClass="letter-box"/>
+            <Label text="" styleClass="letter-box"/>
+        </HBox>
+    </VBox>
 
     <!-- Info & attempts -->
     <HBox spacing="20" alignment="CENTER">
@@ -50,3 +52,4 @@
            styleClass="info-label" wrapText="true" maxWidth="400" alignment="CENTER"/>
 
 </VBox>
+
