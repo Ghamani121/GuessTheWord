@@ -23,7 +23,7 @@
     <!-- Input field and guess button -->
     <HBox spacing="10" alignment="CENTER">
         <TextField fx:id="guessField" promptText="Enter a letter or word" />
-        <!-- <Button fx:id="submitButton" text="Guess" onAction="#handleGuess"/> -->
+        <Button fx:id="submitButton" text="Guess" onAction="#handleGuess"/>
     </HBox>
 
     <!-- Attempts left and message label -->

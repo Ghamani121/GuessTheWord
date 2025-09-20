@@ -49,10 +49,13 @@ private void handleLogin() {
                 // Pass session info to GameController (optional)
                 Stage stage = (Stage) usernameField.getScene().getWindow();
                 SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word", 500, 400, controller -> {
-                    ((GameController) controller).initData(session); // pass the GameSession
+                    try {
+                        ((GameController) controller).initData(session);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        messageLabel.setText("Error initializing game: " + e.getMessage());
+                    }
                 });
-
-
             } catch (IllegalStateException ex) {
                 // Daily limit reached or other game-start errors
                 messageLabel.setText(ex.getMessage());
