@@ -2,7 +2,7 @@
     -fx-background-color: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
     -fx-background-radius: 12;
     -fx-padding: 15;
-    -fx-font-family: "Verdana", sans-serif;
+    -fx-font-family: "Segoe UI", sans-serif;
 
 }
 
@@ -66,10 +66,9 @@
 }
 
 .info-label {
-    -fx-text-fill: #2e7d32;
+    -fx-text-fill: #206723;
     -fx-font-weight: bold;
-   -fx-font-family: "Verdana", sans-serif;
-   -fx-font-size: 22px;
+   -fx-font-size: 18px;
 
 }
 
@@ -86,7 +85,7 @@
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-background-radius: 5;
-    -fx-border-color: #d3d6da;
+    -fx-border-color: #393737;
     -fx-border-width: 2;
     -fx-min-width: 40;
     -fx-min-height: 40;
