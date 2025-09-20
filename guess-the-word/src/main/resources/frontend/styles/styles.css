@@ -2,7 +2,8 @@
     -fx-background-color: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
     -fx-background-radius: 12;
     -fx-padding: 15;
-    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-family: "Verdana", sans-serif;
+
 }
 
 .title-label {
@@ -66,9 +67,12 @@
 
 .info-label {
     -fx-text-fill: #2e7d32;
-    -fx-font-size: 14px;
     -fx-font-weight: bold;
+   -fx-font-family: "Verdana", sans-serif;
+   -fx-font-size: 22px;
+
 }
+
 
 .tab-pane {
     -fx-background-color: #e8f5e9;
