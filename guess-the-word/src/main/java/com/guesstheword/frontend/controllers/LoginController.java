@@ -46,7 +46,7 @@ private void handleLogin() {
                 // Admin user -> go to admin.fxml
                 SceneSwitcher.switchScene(stage, "admin.fxml", "Admin Dashboard - Guess The Word", 600, 400);
             } else {
-                // Regular user -> start a new game session
+                //Regular user = start a new game session
                 try {
                     GameSession session = gameService.startGame(user.getUserId());
 
