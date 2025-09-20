@@ -101,12 +101,14 @@ public class GameController {
     private void renderGuess(String guess) {
         HBox row;
 
-        // If it's the first guess, reuse the placeholder row
-        if (wordGrid.getChildren().size() == 1 && guess.trim().length() == 5) {
+        // Reuse the placeholder ONLY if it's still empty
+        if (wordGrid.getChildren().size() == 1 &&
+            ((Label) ((HBox) wordGrid.getChildren().get(0)).getChildren().get(0)).getText().isEmpty()) {
+            
             row = (HBox) wordGrid.getChildren().get(0);
-            row.getChildren().clear();
+            row.getChildren().clear(); // clear placeholder labels
         } else {
-            // Otherwise, add a new row
+            // Otherwise, add a new row for each guess
             row = new HBox(10);
             row.setAlignment(Pos.CENTER);
             wordGrid.getChildren().add(row);
@@ -131,6 +133,8 @@ public class GameController {
             row.getChildren().add(cell);
         }
     }
+
+
 
     @FXML
     private void handleLogout() throws IOException {

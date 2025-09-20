@@ -53,11 +53,11 @@
     </VBox>
 
     <!-- Game instructions -->
-    <VBox spacing="5" alignment="CENTER">
+    <!-- <VBox spacing="5" alignment="CENTER">
         <Label text="How to play:" styleClass="instructions-title"/>
         <Label text="• Green = correct letter &amp; position" styleClass="instructions-text"/>
         <Label text="• Yellow = correct letter, wrong position" styleClass="instructions-text"/>
         <Label text="• Gray = letter not in the word" styleClass="instructions-text"/>
-    </VBox>
+    </VBox> -->
 
 </VBox>
