@@ -44,14 +44,14 @@ private void handleLogin() {
 
             if (user.isAdmin()) {
                 // Admin user -> go to admin.fxml
-                SceneSwitcher.switchScene(stage, "admin.fxml", "Admin Dashboard - Guess The Word", 600, 400);
+                SceneSwitcher.switchScene(stage, "admin.fxml", "Admin Dashboard - Guess The Word", 900, 600);
             } else {
                 //Regular user = start a new game session
                 try {
                     GameSession session = gameService.startGame(user.getUserId());
 
                     // Pass session info to GameController
-                    SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word", 500, 400, controller -> {
+                    SceneSwitcher.switchScene(stage, "game.fxml", "Guess The Word", 900, 600, controller -> {
                         try {
                             ((GameController) controller).initData(session);
                         } catch (Exception e) {
@@ -78,6 +78,6 @@ private void handleLogin() {
         @FXML
         private void switchToRegister(ActionEvent event) throws Exception {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            SceneSwitcher.switchScene(stage, "registration.fxml", "Guess The Word - Registration", 400, 250);
+            SceneSwitcher.switchScene(stage, "registration.fxml", "Guess The Word - Registration", 900, 600);
         }
 }

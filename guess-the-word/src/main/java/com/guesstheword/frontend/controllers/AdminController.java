@@ -5,14 +5,20 @@ import com.guesstheword.backend.services.ReportService;
 import com.guesstheword.backend.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import com.guesstheword.frontend.Main;
 
 public class AdminController {
+    @FXML
+    private Button logoutButton; // connect to FXML
 
     @FXML
     private TabPane tabPane;
@@ -67,6 +73,13 @@ public class AdminController {
             showError("Error fetching daily report: " + e.getMessage());
         }
     }
+
+    @FXML
+    private void handleLogout() throws IOException {
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        Main.goToLogin(stage);
+    }
+
 
     // Generate user report
     @FXML

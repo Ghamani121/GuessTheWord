@@ -7,24 +7,28 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.guesstheword.frontend.controllers.LoginController"
-      spacing="10" alignment="CENTER" >
+      spacing="15" alignment="CENTER"
+      stylesheets="@../styles/styles.css"
+      styleClass="root-pane">
 
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets top="40" right="40" bottom="40" left="40"/>
     </padding>
 
-    <Label text="User Login" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+    <Label text="🌲 Guess The Word - Login" styleClass="title-label"/>
 
-    <TextField fx:id="usernameField" promptText="Username" />
-    <PasswordField fx:id="passwordField" promptText="Password" />
+    <TextField fx:id="usernameField" promptText="Username" styleClass="input-field"/>
+    <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field"/>
 
-    <Button text="Login" onAction="#handleLogin" />
+    <Label fx:id="messageLabel" styleClass="error-label"/>
 
-    <Button text="Don’t have an account? Register" onAction="#switchToRegister"/>
-
-    <Label fx:id="messageLabel" textFill="red" />
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Login" onAction="#handleLogin" styleClass="primary-btn"/>
+        <Button text="Register" onAction="#switchToRegister" styleClass="secondary-btn"/>
+    </HBox>
 
 </VBox>
+
 
 
 

@@ -34,7 +34,7 @@ public class UserService {
         User user = new User(username, hash,false);
         userDAO.insertUser(user);
 
-        return "User registered successfully!";
+        return "User registered successfully! Please login to start the game";
     }
 
     // Login

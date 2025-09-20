@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.guesstheword.frontend.controllers.GameController"
-      spacing="15" alignment="CENTER">
+      spacing="30" alignment="CENTER"
+      stylesheets="@../styles/styles.css"
+      styleClass="root-pane">
 
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets top="50" right="50" bottom="50" left="50"/>
     </padding>
 
-    <!-- Title -->
-    <Label text="Guess The Word!" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
-
-    <!-- Masked word display -->
-    <Label fx:id="wordLabel" text="_ _ _ _ _" style="-fx-font-size: 20px;"/>
-
-    <!-- Input field and guess button -->
-    <HBox spacing="10" alignment="CENTER">
-        <TextField fx:id="guessField" promptText="Enter a letter or word" />
-        <Button fx:id="submitButton" text="Guess" onAction="#handleGuess"/>
+    <!-- Top bar with Logout button -->
+    <HBox alignment="TOP_RIGHT" spacing="10" maxWidth="Infinity">
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" styleClass="secondary-btn"/>
     </HBox>
 
-    <!-- Attempts left and message label -->
-    <Label fx:id="attemptsLabel" text="Attempts left: 5"/>
-    <Label fx:id="messageLabel" text="" style="-fx-text-fill: red;"/>
+    <!-- Title -->
+    <Label text="🌳 Guess The Word!" styleClass="title-label"/>
 
-    <!-- Logout button -->
-    <!-- <Button text="Logout" onAction="#handleLogout"/> -->
+    <!-- Word grid -->
+    <VBox fx:id="wordGrid" spacing="10" alignment="CENTER" style="-fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 20;"/>
+
+    <!-- Input and submit -->
+    <HBox spacing="15" alignment="CENTER">
+        <TextField fx:id="guessField" promptText="Enter a word" styleClass="input-field" prefWidth="250"/>
+        <Button fx:id="submitButton" text="Guess" onAction="#handleGuess" styleClass="primary-btn" prefWidth="100"/>
+    </HBox>
+
+    <!-- Info & messages -->
+    <Label fx:id="attemptsLabel" text="Attempts left: 5" styleClass="info-label"/>
+    <Label fx:id="messageLabel" text="" styleClass="error-label"/>
 
 </VBox>

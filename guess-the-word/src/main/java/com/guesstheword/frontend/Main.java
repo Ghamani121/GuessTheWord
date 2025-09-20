@@ -1,5 +1,7 @@
 package com.guesstheword.frontend;
 
+import java.io.IOException;
+
 import com.guesstheword.backend.dao.UserDAO;
 import com.guesstheword.backend.models.User;
 import com.guesstheword.frontend.utils.SceneSwitcher;
@@ -14,7 +16,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         // Load the login page first
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/views/login.fxml"));
-        Scene scene = new Scene(loader.load(), 400, 250);
+        Scene scene = new Scene(loader.load(), 900, 600);
         stage.setTitle("Guess The Word");
         stage.setScene(scene);
         stage.show();
@@ -27,18 +29,27 @@ public class Main extends Application {
     public static void openNextPage(Stage stage, User user) throws Exception {
         if (user.isAdmin()) {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/views/admin.fxml"));
-            Scene scene = new Scene(loader.load(), 600, 400); // adjust size
+            Scene scene = new Scene(loader.load(), 900, 600); // adjust size
             stage.setScene(scene);
             stage.setTitle("Admin Dashboard - Guess The Word");
             stage.show();
         } else {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/views/game.fxml"));
-            Scene scene = new Scene(loader.load(), 500, 400); // adjust size
+            Scene scene = new Scene(loader.load(), 900, 600); // adjust size
             stage.setScene(scene);
             stage.setTitle("Guess The Word");
             stage.show();
         }
     }
+
+    public static void goToLogin(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/views/login.fxml"));
+        Scene scene = new Scene(loader.load(), 900, 600);
+        stage.setScene(scene);
+        stage.setTitle("Guess The Word - Login");
+        stage.show();
+    }
+
 
     public static void main(String[] args) {
         launch();
