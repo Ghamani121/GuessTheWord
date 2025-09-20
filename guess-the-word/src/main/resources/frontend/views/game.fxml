@@ -7,7 +7,7 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.guesstheword.frontend.controllers.GameController"
-      spacing="20" alignment="TOP_CENTER"
+      spacing="25" alignment="TOP_CENTER"
       stylesheets="@../styles/styles.css"
       styleClass="root-pane">
 
@@ -35,11 +35,11 @@
         </HBox>
     </VBox>
 
-    <!-- Info & attempts -->
-    <HBox spacing="20" alignment="CENTER">
+    <!-- Info & messages -->
+    <VBox spacing="5" alignment="CENTER">
         <Label fx:id="attemptsLabel" text="Attempts left: 5" styleClass="info-label"/>
-        <Label fx:id="messageLabel" text="" styleClass="info-label"/>
-    </HBox>
+        <Label fx:id="messageLabel" text="" styleClass="error-label"/>
+    </VBox>
 
     <!-- Input and submit -->
     <HBox spacing="15" alignment="CENTER">
@@ -48,8 +48,11 @@
     </HBox>
 
     <!-- Game instructions -->
-    <Label text="Color meanings: Green = correct, Yellow = wrong position, Gray = not in word" 
-           styleClass="info-label" wrapText="true" maxWidth="400" alignment="CENTER"/>
+    <VBox spacing="5" alignment="CENTER">
+        <Label text="How to play:" styleClass="instructions-title"/>
+        <Label text="• Green = correct letter & position" styleClass="instructions-text"/>
+        <Label text="• Yellow = correct letter, wrong position" styleClass="instructions-text"/>
+        <Label text="• Gray = letter not in the word" styleClass="instructions-text"/>
+    </VBox>
 
 </VBox>
-

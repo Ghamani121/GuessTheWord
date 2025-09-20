@@ -106,3 +106,13 @@
     -fx-padding: 0 0 10 0;
 }
 
+.instructions-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+}
+
+.instructions-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+}
