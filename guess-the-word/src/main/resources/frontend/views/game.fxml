@@ -30,7 +30,7 @@
     <VBox spacing="5" alignment="CENTER">
         <Label text="Guess the 5-letter word in 5 tries." styleClass="info-label"/>
         <Label text="🟩 Green = correct letter and correct position" styleClass="info-label"/>
-        <Label text="🟨 Orange = correct letter but wrong position" styleClass="info-label"/>
+        <Label text="🟨 Orange = correct letter but wrong position" styleClass="info-label"/>//
         <Label text="⬜ Gray = not in the word" styleClass="info-label"/>
     </VBox>
 
