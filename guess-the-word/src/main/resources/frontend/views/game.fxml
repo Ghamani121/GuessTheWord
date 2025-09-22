@@ -27,12 +27,21 @@
            styleClass="title-label" alignment="CENTER"/>
 
     <!-- Instructions -->
-    <VBox spacing="5" alignment="CENTER">
-        <Label text="Guess the 5-letter word in 5 tries." styleClass="info-label"/>
-        <Label text="🟩 Green = correct letter and correct position" styleClass="info-label"/>
-        <Label text="🟨 Orange = correct letter but wrong position" styleClass="info-label"/>
-        <Label text="⬜ Gray = not in the word" styleClass="info-label"/>
-    </VBox>
+    <HBox spacing="5" alignment="CENTER">
+        <Label style="-fx-background-color: #6aaa64; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;"/>
+        <Label text="= correct letter and correct position" styleClass="info-label"/>
+    </HBox>
+
+    <HBox spacing="5" alignment="CENTER">
+        <Label style="-fx-background-color: #e09524ff; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;"/>
+        <Label text="= correct letter but wrong position" styleClass="info-label"/>
+    </HBox>
+
+    <HBox spacing="5" alignment="CENTER">
+        <Label style="-fx-background-color: #787c7e; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;"/>
+        <Label text="= not in the word" styleClass="info-label"/>
+    </HBox>
+
 
     <!-- Word grid -->
     <VBox fx:id="wordGrid" spacing="12" alignment="CENTER"/>
