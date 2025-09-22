@@ -20,7 +20,7 @@ public class GameService {
     public GameSession startGame(int userId) throws Exception {
         // 1️⃣ Check daily limit
         int gamesToday = sessionDAO.getGamesPlayedToday(userId);
-        if (gamesToday >= 3) {
+        if (gamesToday >= 10) {
             throw new IllegalStateException("Daily limit reached. Try again tomorrow.");
         }
 

@@ -137,7 +137,7 @@ public void initData(GameSession session) throws Exception {
             if (g == a) {
                 cell.setStyle("-fx-background-color: #6aaa64; -fx-text-fill: white;");
             } else if (actualWord.indexOf(g) != -1) {
-                cell.setStyle("-fx-background-color: #c9b458; -fx-text-fill: white;");
+                cell.setStyle("-fx-background-color: #e09524ff; -fx-text-fill: white;");
             } else {
                 cell.setStyle("-fx-background-color: #787c7e; -fx-text-fill: white;");
             }

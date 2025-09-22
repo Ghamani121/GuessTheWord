@@ -1,26 +1,28 @@
 .root-pane {
     -fx-background-color: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
     -fx-background-radius: 12;
-    -fx-padding: 15;
+    -fx-padding: 20;
     -fx-font-family: "Segoe UI", sans-serif;
-
 }
 
+/* Title */
 .title-label {
-    -fx-font-size: 28px;
+    -fx-font-size: 30px;
     -fx-font-weight: bold;
     -fx-text-fill: #2e7d32; /* Forest green */
 }
 
+/* Wordle grid labels */
 .word-label {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
     -fx-text-fill: #1b5e20;
 }
 
+/* Text input */
 .input-field {
-    -fx-pref-width: 200px;
-    -fx-pref-height: 35px;
+    -fx-pref-width: 250px;
+    -fx-pref-height: 40px;
     -fx-padding: 6;
     -fx-font-size: 16px;
     -fx-background-radius: 8;
@@ -29,20 +31,19 @@
     -fx-background-color: white;
 }
 
-
+/* Buttons */
 .primary-btn, .secondary-btn {
     -fx-pref-width: 120px;
-    -fx-pref-height: 35px;
+    -fx-pref-height: 40px;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
 }
 
 .primary-btn {
     -fx-background-color: #388e3c;
     -fx-text-fill: white;
-    -fx-background-radius: 8;
-    -fx-padding: 6 16;
-    -fx-font-weight: bold;
 }
 
 .primary-btn:hover {
@@ -52,57 +53,44 @@
 .secondary-btn {
     -fx-background-color: #a5d6a7;
     -fx-text-fill: #1b5e20;
-    -fx-background-radius: 8;
-    -fx-padding: 6 16;
 }
 
 .secondary-btn:hover {
     -fx-background-color: #81c784;
 }
 
+/* Labels for messages */
+.success-label {
+    -fx-text-fill: #388e3c;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
 .error-label {
     -fx-text-fill: #d32f2f;
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
 }
 
 .info-label {
-    -fx-text-fill: #429946;
-    -fx-font-weight: bold;
-   -fx-font-size: 18px;
-
+    -fx-text-fill: #444;
+    -fx-font-size: 14px;
+    -fx-wrap-text: true;
 }
-
-.tab-pane {
-    -fx-background-color: #e8f5e9;
-    -fx-pref-width: 800px;
-    -fx-pref-height: 700px;
-}
-
 
 .letter-cell {
-    -fx-font-size: 18px;
+    -fx-border-color: #d3d6da;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
-    -fx-background-radius: 5;
-    -fx-border-color: #a8a5a5;
-    -fx-border-width: 2;
-    -fx-min-width: 40;
-    -fx-min-height: 40;
+    -fx-background-color: white;
 }
 
-.date-picker, .combo-box {
-    -fx-pref-width: 220px;
-    -fx-pref-height: 35px;
-    -fx-font-size: 16px;
-}
-.card {
-    -fx-background-color: rgba(255, 255, 255, 0.914);
-    -fx-background-radius: 12;
-    -fx-padding: 15;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);
-}
-
+/* Instruction section */
 .section-title {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
@@ -119,4 +107,12 @@
 .instructions-text {
     -fx-font-size: 14px;
     -fx-text-fill: #555;
+}
+
+/* Cards (optional sections) */
+.card {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);
 }
