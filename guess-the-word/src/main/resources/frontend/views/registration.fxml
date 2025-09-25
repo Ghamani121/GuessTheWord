@@ -4,27 +4,40 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.guesstheword.frontend.controllers.RegistrationController"
-      spacing="15" alignment="CENTER"
-      stylesheets="@../styles/styles.css"
-      styleClass="root-pane">
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.guesstheword.frontend.controllers.RegistrationController"
+            stylesheets="@../styles/styles.css"
+            styleClass="root-pane"
+            prefWidth="400" prefHeight="500">
 
-    <padding>
-        <Insets top="40" right="40" bottom="40" left="40"/>
-    </padding>
+    <!-- Top title -->
+    <top>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets top="100" bottom="10" left="0" right="0"/>
+            </padding>
+            <Label text="🌿 Register User" styleClass="title-label"/>
+        </HBox>
+    </top>
 
-    <Label text="🌿 Register User" styleClass="title-label"/>
+    <!-- Center registration form -->
+    <center>
+        <VBox spacing="15" alignment="CENTER">
+            <padding>
+                <Insets top="0" bottom="20" left="40" right="40"/>
+            </padding>
 
-    <TextField fx:id="usernameField" promptText="Username" styleClass="input-field"/>
-    <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field"/>
+            <TextField fx:id="usernameField" promptText="Username" styleClass="input-field" prefWidth="250"/>
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field" prefWidth="250"/>
+            
+            <Label fx:id="messageLabel" styleClass="error-label"/>
 
-    <Label fx:id="messageLabel" styleClass="error-label"/>
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Register" onAction="#handleRegister" styleClass="primary-btn" prefWidth="100"/>
+                <Button text="Login" onAction="#switchToLogin" styleClass="secondary-btn" prefWidth="100"/>
+            </HBox>
+        </VBox>
+    </center>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Register" onAction="#handleRegister" styleClass="primary-btn"/>
-        <Button text="Login" onAction="#switchToLogin" styleClass="secondary-btn"/>
-    </HBox>
-
-</VBox>
+</BorderPane>

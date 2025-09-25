@@ -4,66 +4,65 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.guesstheword.frontend.controllers.GameController"
-      spacing="20" alignment="CENTER"
-      stylesheets="@../styles/styles.css"
-      styleClass="root-pane">
-
-    <padding>
-        <Insets top="10" right="40" bottom="20" left="40"/>
-    </padding>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.guesstheword.frontend.controllers.GameController"
+            stylesheets="@../styles/styles.css"
+            styleClass="root-pane"
+            prefWidth="600" prefHeight="800">
 
     <!-- Top bar with Logout button -->
-    <HBox alignment="TOP_RIGHT" spacing="10" maxWidth="Infinity">
-        <Region HBox.hgrow="ALWAYS"/>
-        <Button fx:id="logoutButton" text="Logout"
-                onAction="#handleLogout" styleClass="secondary-btn"/>
-    </HBox>
+    <top>
+        <HBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="20" right="40" bottom="20" left="40"/>
+            </padding>
+            <Button fx:id="logoutButton" text="Logout"
+                    onAction="#handleLogout" styleClass="secondary-btn"/>
+        </HBox>
+    </top>
 
-    <!-- Title -->
-    <Label text="🌳 Guess The Word!"
-           styleClass="title-label" alignment="CENTER"/>
+    <!-- Center content -->
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="40" bottom="20" left="40"/>
+            </padding>
 
-    <!-- Instructions -->
-    <HBox spacing="5" alignment="CENTER">
-        <Label style="-fx-background-color: #6aaa64; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;"/>
-        <Label text="= correct letter and correct position" styleClass="info-label"/>
-    </HBox>
+            <!-- Title -->
+            <Label text="🌳 Guess The Word!" styleClass="title-label" alignment="CENTER"/>
 
-    <HBox spacing="5" alignment="CENTER">
-        <Label style="-fx-background-color: #e09524ff; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;"/>
-        <Label text="= correct letter but wrong position" styleClass="info-label"/>
-    </HBox>
+            <!-- Instructions -->
+            <VBox spacing="5" alignment="CENTER">
+                <Label text="Guess the 5-letter word in 5 attempts." styleClass="info-label"/>
 
-    <HBox spacing="5" alignment="CENTER">
-        <Label style="-fx-background-color: #787c7e; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;"/>
-        <Label text="= not in the word" styleClass="info-label"/>
-    </HBox>
+                <GridPane hgap="5" vgap="5" alignment="CENTER">
+                    <!-- Row 1: Green -->
+                    <Label style="-fx-background-color: #6aaa64; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label text="= correct letter and correct position" styleClass="info-label" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <!-- Row 2: Orange -->
+                    <Label style="-fx-background-color: #e09524ff; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label text="= correct letter but wrong position" styleClass="info-label" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <!-- Row 3: Gray -->
+                    <Label style="-fx-background-color: #787c7e; -fx-min-width: 20; -fx-min-height: 20; -fx-background-radius: 3;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label text="= not in the word" styleClass="info-label" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
 
+            <!-- Word grid -->
+            <VBox fx:id="wordGrid" spacing="12" alignment="CENTER"/>
 
-    <!-- Word grid -->
-    <VBox fx:id="wordGrid" spacing="12" alignment="CENTER"/>
+            <!-- Input row -->
+            <HBox spacing="12" alignment="CENTER">
+                <TextField fx:id="guessField" promptText="Enter a word"
+                           styleClass="input-field" prefWidth="250"/>
+                <Button fx:id="submitButton" text="Guess"
+                        onAction="#handleGuess" styleClass="primary-btn" prefWidth="100"/>
+            </HBox>
 
-    <!-- Input row -->
-    <HBox spacing="12" alignment="CENTER">
-        <padding>
-            <Insets top="10" right="0" bottom="0" left="0"/>
-        </padding>
-        <TextField fx:id="guessField" promptText="Enter a word"
-                   styleClass="input-field" prefWidth="250"/>
-        <Button fx:id="submitButton" text="Guess"
-                onAction="#handleGuess" styleClass="primary-btn" prefWidth="100"/>
-    </HBox>
-
-    <!-- Info & messages -->
-    <VBox spacing="5" alignment="CENTER">
-        <Label fx:id="attemptsLabel" text="Attempts left: 5" styleClass="info-label"/>
-    </VBox>
-
-    <VBox alignment="CENTER">
-        <Label fx:id="messageLabel" text="" styleClass="error-label"/>
-    </VBox>
-
-</VBox>
+            <!-- Info & messages -->
+            <Label fx:id="attemptsLabel" text="Attempts left: 5" styleClass="info-label"/>
+            <Label fx:id="messageLabel" text="" styleClass="error-label"/>
+        </VBox>
+    </center>
+</BorderPane>

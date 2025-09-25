@@ -39,7 +39,9 @@ public class RegistrationController {
     @FXML
     private void switchToLogin(ActionEvent event) throws Exception {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        SceneSwitcher.switchScene(stage, "login.fxml", "Guess The Word - Login", 900, 600);
+        SceneSwitcher.switchScene(stage, "login.fxml", "Guess The Word - Login");
+        stage.setMaximized(true);
+
     }
 
 }

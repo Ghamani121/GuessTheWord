@@ -2,9 +2,7 @@ package com.guesstheword.frontend;
 
 import java.io.IOException;
 
-import com.guesstheword.backend.dao.UserDAO;
 import com.guesstheword.backend.models.User;
-import com.guesstheword.frontend.utils.SceneSwitcher;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,40 +14,44 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         // Load the login page first
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/views/login.fxml"));
-        Scene scene = new Scene(loader.load(), 900, 600);
+        Scene scene = new Scene(loader.load());
         stage.setTitle("Guess The Word");
         stage.setScene(scene);
-        stage.show();
 
-        // Pass stage to LoginController (optional if using SceneSwitcher)
-        // SceneSwitcher can handle switching after login based on isAdmin
+        // Maximize window while keeping borders
+        stage.setMaximized(true);
+
+        stage.show();
     }
 
-    // Utility method to switch to appropriate page after login
+    // Utility method to switch to the appropriate page after login
     public static void openNextPage(Stage stage, User user) throws Exception {
+        FXMLLoader loader;
+        Scene scene;
+
         if (user.isAdmin()) {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/views/admin.fxml"));
-            Scene scene = new Scene(loader.load(), 900, 600); // adjust size
-            stage.setScene(scene);
+            loader = new FXMLLoader(Main.class.getResource("/frontend/views/admin.fxml"));
+            scene = new Scene(loader.load());
             stage.setTitle("Admin Dashboard - Guess The Word");
-            stage.show();
         } else {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/views/game.fxml"));
-            Scene scene = new Scene(loader.load(), 900, 600); // adjust size
-            stage.setScene(scene);
+            loader = new FXMLLoader(Main.class.getResource("/frontend/views/game.fxml"));
+            scene = new Scene(loader.load());
             stage.setTitle("Guess The Word");
-            stage.show();
         }
+
+        stage.setScene(scene);
+        stage.setMaximized(true); // keep maximized on scene switch
+        stage.show();
     }
 
     public static void goToLogin(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/views/login.fxml"));
-        Scene scene = new Scene(loader.load(), 900, 600);
+        Scene scene = new Scene(loader.load());
         stage.setScene(scene);
         stage.setTitle("Guess The Word - Login");
+        stage.setMaximized(true); // keep maximized
         stage.show();
     }
-
 
     public static void main(String[] args) {
         launch();

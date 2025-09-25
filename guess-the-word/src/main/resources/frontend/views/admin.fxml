@@ -17,6 +17,9 @@
     </padding>
 
     <HBox alignment="CENTER_LEFT" spacing="10">
+        <padding>
+            <Insets top="50" right="20" bottom="20" left="20"/>
+        </padding>
         <!-- Dashboard Title -->
         <Label text="📊 Admin Dashboard" styleClass="title-label"/>
         
@@ -30,6 +33,9 @@
 
     <!-- Daily Report Card -->
     <VBox spacing="20" styleClass="card" prefWidth="700">
+        <padding>
+            <Insets top="20" right="40" bottom="20" left="40"/>
+        </padding>
         <Label text="📅 Daily Report" styleClass="section-title"/>
 
         <HBox spacing="15" alignment="CENTER">
