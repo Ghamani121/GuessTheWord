@@ -13,7 +13,7 @@ import com.guesstheword.backend.models.GameSession;
 import com.guesstheword.backend.models.User;
 import com.guesstheword.backend.dao.UserDAO;
 
-public class LoginController {//
+public class LoginController {
 
     @FXML
     private TextField usernameField;
