@@ -1,4 +1,4 @@
-<img width="1790" height="932" alt="3" src="https://github.com/user-attachments/assets/b14c8e16-06be-451d-a6a1-016239d847ba" /># GuessTheWord
+### GuessTheWord
 
 GuessTheWord is a JavaFX-based word guessing game built with **Java 21**, **MySQL**, and **JDBC**. The game allows users to register, log in, and play a daily word guessing challenge. Admin users can generate reports on user activity and game performance.  
 
@@ -22,20 +22,10 @@ GuessTheWord is a JavaFX-based word guessing game built with **Java 21**, **MySQ
 
 ## Screenshots
 
+<img width="490" height="655" alt="1" src="https://github.com/user-attachments/assets/19195a50-2671-47c4-b363-7b3f2cf127ea" />
 
----<img width="1917" height="767" alt="4" src="https://github.com/user-attachments/assets/64cb97ff-f2a4-48a5-aab4-10765602d80a" />
-<img width="1790" heig<img width="492" height="658" alt="2" src="https://github.com/user-attachments/assets/97f6fe58-68be-4d00-a230-bb29f5e64623" />
-ht="932" alt="3" src="https://github.com/user-attachments/assets/f20976cd-4bb3-4f44-9fe7-382b11136ddd" />
-<img width="490" height="655" alt="1" src="https://github.com/user-attachments/assets/69b16d4b-0e08-448d-9f32-48a6f393dede" />
 
-<img width="1917" height="767" alt="4" src="https://github.com/user-attachments/assets/2e191243-a65a-41d8-bc7c-4985409afa8b" />
-<img width="1790" height="932" alt="3" src="https://github.com/user-attachments/assets/99515db1-fd62-41b2-aa26-34481bd6f34a" />
-<img width="490" height="655" alt="1" src="https://github.com/user-attachments/assets/2864c658-76c8-4b80-a3e9-7bb67c0ff5b9" />
-<img width="492" height="658" alt="2" src="https://github.com/user-attachments/assets/550e9a4a-ba52-4756-a059-9aafebbd94da" />
-<img width="490" height="655" alt="1" src="https://github.com/user-attachments/assets/d8e5e464-3a25-41e0-99d7-4b1597b44782" />
-<img width="492" height="658" alt="2" src="https://github.com/user-attachments/assets/0e7b62d8-edfa-474b-a93a-578797ac6339" />
-<img width="1917" height="767" alt="4" src="https://github.com/user-attachments/assets/fa43372d-c443-4f50-9665-a830c7c3e810" />
-<img width="1790" height="932" alt="3" src="https://github.com/user-attachments/assets/44b0e502-e1fa-4c59-8f4a-9880f864ee23" />
+---
 
 ## Features
 
