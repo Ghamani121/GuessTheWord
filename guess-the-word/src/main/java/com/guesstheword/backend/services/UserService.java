@@ -43,9 +43,10 @@ public class UserService {
         if (user == null) return "Username does not exist.";
 
         if (PasswordUtil.verifyPassword(password, user.getHashPassword())) {
+            
             return "Login successful!";
         } else {
-            return "Incorrect password.";
+            return 
         }
     }
 
