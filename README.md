@@ -1,6 +1,7 @@
-### GuessTheWord
+##### GuessTheWord
+---
 
-GuessTheWord is a JavaFX-based word guessing game built with **Java 21**, **MySQL**, and **JDBC**. The game allows users to register, log in, and play a daily word guessing challenge. Admin users can generate reports on user activity and game performance.  
+##GuessTheWord is a JavaFX-based word guessing game built with **Java 21**, **MySQL**, and **JDBC**. The game allows users to register, log in, and play a daily word guessing challenge. Admin users can generate reports on user activity and game performance.  
 
 ---
 
@@ -23,7 +24,9 @@ GuessTheWord is a JavaFX-based word guessing game built with **Java 21**, **MySQ
 ## Screenshots
 
 <img width="490" height="655" alt="1" src="https://github.com/user-attachments/assets/19195a50-2671-47c4-b363-7b3f2cf127ea" />
-
+<img width="492" height="658" alt="2" src="https://github.com/user-attachments/assets/14f36b19-06f9-4f73-87da-ec0e5bd9b3b1" />
+<img width="1790" height="932" alt="3" src="https://github.com/user-attachments/assets/72b5f29f-0936-475a-821f-5cb23fad23f3" />
+<img width="1917" height="767" alt="4" src="https://github.com/user-attachments/assets/1ebf2366-b53a-4c20-b42c-156f4504b3fd" />
 
 ---
 
