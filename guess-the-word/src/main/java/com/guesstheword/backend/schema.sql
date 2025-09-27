@@ -1,5 +1,5 @@
-create database guess__the_word;
-use guess__the_word;
+create database guess_the_word;
+use guess_the_word;
 
 create table user(
 	user_id int auto_increment primary key,
@@ -45,4 +45,4 @@ INSERT INTO word (word_text) VALUES
 ('HONEY'), ('SPICE'), ('SALAD'), ('CREAM'), ('JUICE');
 
 INSERT INTO user (username, hash_password, is_admin)
-VALUES ('Admin', 'admin@123', true);
+VALUES ('Admin', '7676aaafb027c825bd9abab78b234070e702752f625b752e55e55b48e607e358', true);
