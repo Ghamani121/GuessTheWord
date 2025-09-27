@@ -22,7 +22,7 @@ GuessTheWord is a JavaFX-based word guessing game built with **Java 21**, **MySQ
 
 ## Screenshots
 
-_Add screenshots here (login, game screen, reports, etc.)_
+
 
 ---
 
@@ -62,3 +62,23 @@ Run the provided **schema.sql** file in your MySQL server:
 ```bash
 cd src/main/java/com/guesstheword/backend
 mysql -u root -p < schema.sql
+```
+
+### 2. Configure Database Connection
+
+Update your MySQL credentials in **DbConnection.java**:
+
+```java
+private static final String URL = "jdbc:mysql://localhost:3306/guess_the_word";
+private static final String USER = "your_mysql_username";
+private static final String PASSWORD = "your_mysql_password";
+```
+### 3. Run the Application
+
+From the project root:
+
+```bash
+mvn clean compile exec:java
+```
+
+
