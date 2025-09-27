@@ -46,7 +46,7 @@ public class UserService {
             
             return "Login successful!";
         } else {
-            return user.getHashPassword();
+            return password;
         }
     }
 
